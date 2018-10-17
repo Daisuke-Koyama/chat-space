@@ -16,8 +16,9 @@
 |title|string|null: false|
 
 ### Association
-has_many :messages
-has_many :members
+- has_many :messages
+- has_many :members
+- has_many :users through: :members
 
 ## membersテーブル
 |Column|Type|Options|
@@ -40,4 +41,3 @@ has_many :members
 ### Association
 - belongs_to :user
 - belongs_to :group
-- has_many :users through: :members
