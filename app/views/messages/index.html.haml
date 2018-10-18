@@ -1,42 +1,63 @@
-.wrappr
+.wrapper
   .left
     .nickname
       .user-content
-        %p.user-content__name name
+        %p.user-content__name 林田真尋♪
         %ul.menu
-          %li.user-content__pencil new
-          %li.user-content__setting 歯車
+          %li.user-content__setting
+            = link_to "#" do
+              = fa_icon 'gear'
+          %li.user-content__pencil
+            =link_to "#" do
+              = fa_icon 'edit'
     .groups
       .group
         %p.group__group-name 林田真尋たん天使♡
         %p.group__group-message この世に舞い降りた天使！！
       .group
-        %p.group__group-name 林田真尋たん天使♡
+        %p.group__group-name 下村実生たんも天使♡
         %p.group__group-message この世に舞い降りた天使！！
       .group
         %p.group__group-name 林田真尋たん天使♡
         %p.group__group-message この世に舞い降りた天使！！
+
   .right
     .header
       .left-header
-        %p.left-header__title
-        %ul.member
-          %li.member__list
-          %li.member__list
-          %li.member__list
+        %p.left-header__title 林田真尋たん天使♡
+        %ul.members
+          %li.members__list Member :
+          %li.members__list 林田真尋♪
+          %li.members__list 下村実生たん
       .edit
+        = link_to 'Edit',"#"
     .messages
       .message
         .upper-message
-          %p.upper-message__user-name
-          %p.upper-message__date
-          %p.upper-message__content
-          %img.upper-message__image
+          %p.upper-message__user-name 林田真尋
+          %p.upper-message__date 2018.10.18
+        %p.upper-message__content 今日も可愛い真尋たん
+        %img.upper-message__image image
+      .message
+        .upper-message
+          %p.upper-message__user-name 林田真尋
+          %p.upper-message__date 2018.10.18
+        %p.upper-message__content 今日も可愛い真尋たん
+        %img.upper-message__image image
+      .message
+        .upper-message
+          %p.upper-message__user-name 林田真尋
+          %p.upper-message__date 2018.10.18
+        %p.upper-message__content 今日も可愛い真尋たん
+        %img.upper-message__image image
+
     .footer
       %form
         .message-form
-          %input.message-form__message-content{type: "text_field"}
-          %label
-            %input.message-form__icon{type: "file"}
-            %i ssss
-          %input.message-form__button{type: "submit"}
+          %input.message-form__message-content{type: "text_field", placeholder: "type a message"}
+            %label
+              %input.message-form__icon{type: "file"}
+              %i.message-form__image
+                = fa_icon 'image'
+          %input.message-form__button{type: "submit", value: "Send"}
+

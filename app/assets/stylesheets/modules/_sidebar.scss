@@ -1,0 +1,48 @@
+.left {
+  width: 300px;
+  float: left;
+  .nickname {
+    background-color:  #253151;
+    height: 100px;
+    color: #FFF;
+    .user-content {
+      padding: 38px 20px;
+      .user-content__name {
+        float: left;
+        font-weight: bold;
+      }
+      .menu {
+        float: right;
+        width: 50px;
+        .user-content__pencil{
+          float: right;
+          padding: 0 5px;
+        }
+        .user-content__setting{
+            float: right;
+        }
+      }
+      .menu a {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.groups {
+  background-color: #2f3e51;
+  height: calc(100% - 100px);
+  color: #FFF;
+  .group {
+    height: 65px;
+    padding: 20px;
+    &__group-name {
+      font-size: 15px;
+    }
+    &__group-message {
+      font-size: 11px;
+      padding: 5px 0 0 0;
+    }
+  }
+}
+
