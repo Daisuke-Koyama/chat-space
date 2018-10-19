@@ -2,24 +2,22 @@
   .left
     .nickname
       .user-content
-        %p.user-content__name 林田真尋♪
+        %p.user-content__name
+          = current_user.name
         %ul.menu
           %li.user-content__setting
-            = link_to "#" do
+            = link_to edit_user_path(current_user) do
               = fa_icon 'gear'
           %li.user-content__pencil
             =link_to "#" do
               = fa_icon 'edit'
     .groups
       .group
-        %p.group__group-name 林田真尋たん天使♡
-        %p.group__group-message この世に舞い降りた天使！！
+        %p.group__group-name フェアリーズ
+        %p.group__group-message 妖精
       .group
-        %p.group__group-name 下村実生たんも天使♡
-        %p.group__group-message この世に舞い降りた天使！！
-      .group
-        %p.group__group-name 林田真尋たん天使♡
-        %p.group__group-message この世に舞い降りた天使！！
+        %p.group__group-name フェアリーズ
+        %p.group__group-message 妖精
 
   .right
     .header
