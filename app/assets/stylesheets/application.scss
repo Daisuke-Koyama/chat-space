@@ -5,14 +5,9 @@
 @import "./reset";
 @import "./config/variables";
 @import "./mixin/clearfix";
-@import "./mixin/basic";
 @import "./modules/sidebar";
 @import "./modules/main";
-
 
 html,body,.wrapper,.left,.right {
   height: 100%;
 }
-
-
-
