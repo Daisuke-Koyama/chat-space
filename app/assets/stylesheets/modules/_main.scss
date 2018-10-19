@@ -1,0 +1,115 @@
+.right {
+  float: left;
+  width: calc(100% - 300px);
+  .header {
+    height: 99px;
+    border-bottom: 1px solid #eee;
+    .left-header {
+      height: 65px;
+      padding: 35px 40px 0px 40px;
+      float: left;
+      &__title {
+        font-size: 20px;
+      }
+      .members {
+        font-size: 12px;
+        padding-top: 15px;
+        color: #999;
+        &__list {
+          float: left;
+        }
+        &__list + li {
+          padding-left: 5px;
+        }
+      }
+    }
+    .edit {
+      float: right;
+      height: 40px;
+      line-height: 40px;
+      border: 1px solid #38AEF0;
+      color: #38AEF0;
+      padding: 0 20px;
+      margin: 28px 40px 0 0;
+      a {
+        color: #38AEF0;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.messages {
+  height: calc(100% - 236px);
+  padding: 46px 40px 0;
+  background-color: #FAFAFA;
+  .message {
+    margin-bottom: 40px;
+    .upper-message {
+      @include clearfix;
+      &__user-name {
+        font-size: 16px;
+        font-weight: bold;
+        float: left;
+        color: $mainBlack;
+      }
+      &__date {
+        font-size: 12px;
+        margin-left: 10px;
+        float: left;
+        color: #999;
+      }
+    }
+    &__content {
+      font-size: 14px;
+      color: $mainBlack;
+    }
+  }
+}
+
+.footer {
+  height: 50px;
+  padding: 20px 50px 20px 40px;
+  background-color: #ddd;
+  form{
+    .message-form {
+      &__message-content {
+        width: calc(100% - 180px);
+        height: 50px;
+        padding: 0 10px;
+        float: left;
+        border-style:none;
+      }
+      label {
+        input {
+          height: 50px;
+          background-color: white;
+          display: none;
+        }
+        i {
+          font-size:20px !important;
+          float: left;
+          height: 50px;
+          padding-right: 10px;
+          background-color: white;
+          line-height: 50px;
+        }
+      }
+      input.message-form__button{
+        width: 100px;
+        height: 50px;
+        float: right;
+        border-style:none;
+        color: #fff;
+        background-color: #38AEF0;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
