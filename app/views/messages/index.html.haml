@@ -11,13 +11,8 @@
           %li.user-content__pencil
             =link_to new_group_path do
               = fa_icon 'edit'
-    .groups
-      .group
-        %p.group__group-name group-name1
-        %p.group__group-message message
-      .group
-        %p.group__group-name group-name2
-        %p.group__group-message message
+    = render "messages/group_list"
+
 
   .right
     .header
