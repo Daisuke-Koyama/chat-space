@@ -32,7 +32,6 @@
 .groups {
   background-color: #2f3e51;
   height: calc(100% - 100px);
-  color: #FFF;
   .group {
     height: 65px;
     padding: 20px;
@@ -44,4 +43,8 @@
       padding: 5px 0 0 0;
     }
   }
+}
+.groups a {
+  color: #fff;
+  text-decoration: none;
 }

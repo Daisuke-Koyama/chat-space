@@ -1,4 +1,6 @@
 ja:
+  attributes:
+    name: グループ名
   devise:
     confirmations:
       confirmed: "アカウントが確認されました。ログインしています。"
