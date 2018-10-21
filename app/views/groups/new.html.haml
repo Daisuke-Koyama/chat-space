@@ -2,8 +2,8 @@
   %h1 新規チャットグループ
   =form_for @group do |f|
     -if @group.errors.any?
-      .chat-group-from__errors
-        %h2= "#{@group.errors.full_messages.count}}件のエラーが発生しました"
+      .chat-group-form__errors
+        %h2= "#{@group.errors.full_messages.count}件のエラーが発生しました"
         %ul
           - @group.errors.full_messages.each do |message|
             %li= message
@@ -45,4 +45,4 @@
       .chat-group-form__field--left
       .chat-group-form__field--right
 
-        = f.submit class: "chat-group-form__action-btn"
+        = f.submit value: "登録する", class: "chat-group-form__action-btn"
