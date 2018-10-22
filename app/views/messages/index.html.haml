@@ -12,8 +12,6 @@
             =link_to new_group_path do
               = fa_icon 'edit'
     = render "messages/group_list"
-
-
   .right
     .header
       .left-header
@@ -43,14 +41,10 @@
           %p.upper-message__date 2018.10.18
         %p.upper-message__content message3
         %img.upper-message__image image3
-
     .footer
-      %form
-        .message-form
-          %input.message-form__message-content{type: "text_field", placeholder: "type a message"}
-            %label
-              %input.message-form__icon{type: "file"}
-              %i.message-form__image
-                = fa_icon 'image'
-          %input.message-form__button{type: "submit", value: "Send"}
-
+      = form_for [@group, @message], html: {class: 'message-form' } do |f|
+        = f.text_field :body, class: 'message-form__message-content', placeholder: 'type a message'
+        = f.label :image do
+          = f.file_field :image, class: 'message-form__icon'
+          = fa_icon 'image'
+        = f.submit 'Send', class: 'message-form__button'
