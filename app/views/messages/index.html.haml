@@ -11,7 +11,7 @@
           %li.user-content__pencil
             =link_to new_group_path do
               = fa_icon 'edit'
-    = render "messages/group_list"
+    = render "group_list"
   .right
     .header
       .left-header
@@ -23,24 +23,8 @@
       .edit
         = link_to 'Edit',"#"
     .messages
-      .message
-        .upper-message
-          %p.upper-message__user-name name
-          %p.upper-message__date 2018.10.18
-        %p.upper-message__content message1
-        %img.upper-message__image image1
-      .message
-        .upper-message
-          %p.upper-message__user-name name
-          %p.upper-message__date 2018.10.18
-        %p.upper-message__content message2
-        %img.upper-message__image image2
-      .message
-        .upper-message
-          %p.upper-message__user-name name
-          %p.upper-message__date 2018.10.18
-        %p.upper-message__content message3
-        %img.upper-message__image image3
+      = render @messages
+
     .footer
       = form_for [@group, @message], html: {class: 'message-form' } do |f|
         = f.text_field :body, class: 'message-form__message-content', placeholder: 'type a message'
