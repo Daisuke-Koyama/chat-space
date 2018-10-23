@@ -15,13 +15,16 @@
   .right
     .header
       .left-header
-        %p.left-header__title title
+        %p.left-header__title
+          = @group.name
         %ul.members
           %li.members__list Member :
-          %li.members__list name1
-          %li.members__list name2
+          - @group.users.each do |user|
+            %li.members__list
+              = user.name
+
       .edit
-        = link_to 'Edit',"#"
+        = link_to 'Edit', edit_group_path(@group)
     .messages
       = render @messages
 
