@@ -1,12 +1,13 @@
 $(function(){
 
   function buildHTML(message){
-    message_html = ""
+    var message_html = ""
+    var message_imageUrl = ""
     if (message.text) {
-      message_html = message_html + message.text
+      message_html += message.text
     }
-    if (message.image.url) {
-      message_html = message_html + "<br><img src=" + message.image.url + ">"
+    if (message.image) {
+      message_imageUrl += "<br><img src=" + message.image + ">"
     }
     var html = `<div class="message">
                   <div class="upper-message">
@@ -18,10 +19,9 @@ $(function(){
                     </p>
                   </div>
                   <div class="lower-message">
-                    <p class="lower-message__data">
-                      ${message_html}
-                    </p>
+                    ${message_html}
                   </div>
+                    ${message_imageUrl}
                 </div>`
     return html;
   }
@@ -30,7 +30,7 @@ $(function(){
     e.preventDefault();
     var formData = new FormData(this);
     $.ajax({
-      url: location.href,
+      url: $('#message_body').attr('action'),
       type: "POST",
       data: formData,
       dataType: 'json',
@@ -41,7 +41,7 @@ $(function(){
       var html = buildHTML(data);
       $('.messages').append(html)
       $('.message-form__message-content').val('')
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 1500,'swing');
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight});
     })
     .fail(function(){
       alert('error');
