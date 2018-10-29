@@ -37,16 +37,17 @@ $(function(){
       processData: false,
       contentType: false
     })
+    .always(function() {
+      $('.message-form__button').prop('disabled', false)
+    })
     .done(function(data){
       var html = buildHTML(data);
       $('.messages').append(html)
       $('.message-form__message-content').val('')
-      $('.message-form__button').prop('disabled', false)
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 1500,'swing');
     })
     .fail(function(){
       alert('error');
-      $('.message-form__button').prop('disabled', false)
     })
   })
 });
