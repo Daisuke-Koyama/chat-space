@@ -30,15 +30,12 @@ $(function(){
     e.preventDefault();
     var formData = new FormData(this);
     $.ajax({
-      url: './messages',
+      url: location.href,
       type: "POST",
       data: formData,
       dataType: 'json',
       processData: false,
       contentType: false
-    })
-    .always(function() {
-      $('.message-form__button').prop('disabled', false)
     })
     .done(function(data){
       var html = buildHTML(data);
@@ -48,6 +45,9 @@ $(function(){
     })
     .fail(function(){
       alert('error');
+    })
+    .always(function() {
+      $('.message-form__button').prop('disabled', false)
     })
   })
 });
