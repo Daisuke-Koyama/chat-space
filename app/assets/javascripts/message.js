@@ -1,7 +1,6 @@
 $(function(){
 
   function buildHTML(message){
-    var date = new Date(message.time)
     message_html = ""
     if (message.text) {
       message_html = message_html + message.text
@@ -15,7 +14,7 @@ $(function(){
                       ${message.user_name}
                     </p>
                     <p class="upper-message__data">
-                      ${date.toLocaleString()}
+                      ${message.time}
                     </p>
                   </div>
                   <div class="lower-message">
@@ -29,11 +28,9 @@ $(function(){
 
   $('.message-form').on('submit', function(e){
     e.preventDefault();
-
     var formData = new FormData(this);
-    var href = window.location.href
     $.ajax({
-      url: href,
+      url: './messages',
       type: "POST",
       data: formData,
       dataType: 'json',
@@ -46,15 +43,10 @@ $(function(){
       $('.message-form__message-content').val('')
       $('.message-form__button').prop('disabled', false)
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 1500,'swing');
-      return false
     })
     .fail(function(){
       alert('error');
+      $('.message-form__button').prop('disabled', false)
     })
   })
 });
-
-
-
-
-
