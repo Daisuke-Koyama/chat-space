@@ -45,7 +45,7 @@
   background-color: #FAFAFA;
   overflow: scroll;
   .message {
-    margin-bottom: 40px;
+    margin-bottom: 45px;
     .upper-message {
       @include clearfix;
       &__user-name {
@@ -54,16 +54,19 @@
         float: left;
         color: $mainBlack;
       }
-      &__date {
+      &__data {
         font-size: 12px;
         margin-left: 10px;
         float: left;
         color: #999;
       }
     }
-    &__content {
-      font-size: 14px;
-      color: $mainBlack;
+    .lower-message {
+      height: 10px;
+      &__data {
+        font-size: 14px;
+        color: $mainBlack;
+      }
     }
   }
 }
@@ -105,3 +108,8 @@
     }
   }
 }
+
+img {
+  margin-top: 10px;
+}
+
