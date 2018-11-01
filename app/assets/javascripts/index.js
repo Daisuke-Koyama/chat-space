@@ -10,6 +10,14 @@ function appendUser(user) {
   user_list.append(html);
 }
 
+function buildInputHTML(id, name) {
+  var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
+                <input name='group[user_ids][]' type='hidden' value='${ id }'>
+                <p class='chat-group-user__name'>${ name }</p>
+                <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
+              </div>`
+  return html;
+}
 
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();
@@ -22,7 +30,6 @@ function appendUser(user) {
     })
 
     .done(function(users) {
-      console.log()
       $('#user-search-result').empty();
       if (users.length !== 0 ) {
         users.forEach(function(user) {
@@ -33,5 +40,17 @@ function appendUser(user) {
     .fail(function() {
       alert('ユーザー検索に失敗しました');
     })
+  });
+
+  $(document).on('click', '.chat-group-user__btn--add', function() {
+    var userId = $(this).attr('data-user-id');
+    var userName = $(this).attr('data-user-name');
+    var html = buildInputHTML(userId, userName);
+    $('#chat-group-users').append(html)
+    $(this).parent().remove()
+  });
+
+  $(document).on('click', '.js-remove-btn', function() {
+    $(this).parent().remove()
   });
 });

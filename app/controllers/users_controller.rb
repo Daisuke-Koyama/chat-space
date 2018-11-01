@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.where( 'name LIKE(?)', "%#{params[:keyword]}%").limit 10
+    @users = User.where( 'name LIKE(?)', "%#{params[:keyword]}%")
 
     respond_to do |format|
       format.html
@@ -26,4 +26,3 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email)
   end
 end
-

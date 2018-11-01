@@ -1,5 +1,4 @@
-$(function(){
-
+$(function() {
   function buildHTML(message){
     var message_html = ""
     var message_imageUrl = ""
