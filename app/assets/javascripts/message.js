@@ -1,5 +1,4 @@
-$(function(){
-
+$(function() {
   function buildHTML(message){
     var message_html = ""
     var message_imageUrl = ""
@@ -19,8 +18,10 @@ $(function(){
                     </p>
                   </div>
                   <div class="lower-message">
-                    ${message_html}
                   </div>
+                    <p class="lower-message__data">
+                      ${message_html}
+                    </p>
                     ${message_imageUrl}
                 </div>`
     return html;
