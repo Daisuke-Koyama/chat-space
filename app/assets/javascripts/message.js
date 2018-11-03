@@ -8,7 +8,7 @@ $(function() {
     if (message.image) {
       message_imageUrl += "<br><img src=" + message.image + ">"
     }
-    var html = `<div class="message">
+    var html = `<div class="message" data-message-id="${message.id}">
                   <div class="upper-message">
                     <p class="upper-message__user-name">
                       ${message.user_name}
@@ -27,7 +27,7 @@ $(function() {
     return html;
   }
 
-  $('.message-form').on('submit', function(e){
+ $('.message-form').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
     $.ajax({
@@ -51,4 +51,35 @@ $(function() {
       $('.message-form__button').prop('disabled', false)
     })
   })
+
+  var interval = setInterval(function() {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+      var id = $('.message').last().data('messageId');
+      $.ajax({
+        url: $('#message_body').attr('action'),
+        type: "get",
+        dataType: 'json',
+        data: {id: id}
+      })
+      .done(function(data){
+        var html = '';
+        console.log(data);
+        data.messages.forEach(function(message) {
+          if (message.id > id) {
+            html += buildHTML(message)
+          }
+        })
+        $('.messages').append(html)
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight});
+      })
+      .fail(function(){
+        alert('error');
+      })
+      .always(function() {
+        $('.message-form__button').prop('disabled', false)
+      })
+    } else {
+      clearInterval(interval);
+    }
+  } ,5000 )
 });
