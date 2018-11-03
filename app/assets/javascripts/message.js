@@ -63,7 +63,6 @@ $(function() {
       })
       .done(function(data){
         var html = '';
-        console.log(data);
         data.messages.forEach(function(message) {
           if (message.id > id) {
             html += buildHTML(message)
