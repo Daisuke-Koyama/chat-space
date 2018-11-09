@@ -37,12 +37,18 @@ $(function() {
       dataType: 'json',
       processData: false,
       contentType: false
+
     })
     .done(function(data){
-      var html = buildHTML(data);
-      $('.messages').append(html)
-      $('.message-form__message-content').val('')
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight});
+      if (data.text != null || data.image != null) {
+
+        var html = buildHTML(data);
+        $('.messages').append(html)
+        $('#new_message')[0].reset();
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight});
+
+      }
+
     })
     .fail(function(){
       alert('error');
